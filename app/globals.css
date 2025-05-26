@@ -1,0 +1,208 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 230 25% 5%;
+    --foreground: 210 40% 98%;
+    
+    --card: 222 25% 8%;
+    --card-foreground: 210 40% 98%;
+    
+    --popover: 222 25% 8%;
+    --popover-foreground: 210 40% 98%;
+    
+    --primary: 263 70% 50%;
+    --primary-foreground: 210 40% 98%;
+    
+    --secondary: 217 76% 51%;
+    --secondary-foreground: 210 40% 98%;
+    
+    --accent: 29 90% 65%; 
+    --accent-foreground: 222 25% 10%;
+    
+    --muted: 217 10% 20%;
+    --muted-foreground: 215 20% 65%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    
+    --border: 215 25% 20%;
+    --input: 215 25% 20%;
+    --ring: 263 70% 50%;
+    
+    --divine-purple: 263 70% 50%;
+    --divine-blue: 217 76% 51%;
+    --divine-gold: 45 100% 60%;
+    --divine-saffron: 29 90% 65%;
+    --divine-red: 354 85% 55%;
+    
+    --chart-1: 263 70% 50%;
+    --chart-2: 217 76% 51%;
+    --chart-3: 29 90% 65%;
+    --chart-4: 354 85% 55%;
+    --chart-5: 45 100% 60%;
+    
+    --radius: 0.75rem;
+  }
+  
+  .light {
+    --background: 210 20% 98%;
+    --foreground: 222 25% 10%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 222 25% 10%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 25% 10%;
+    
+    --primary: 263 60% 50%;
+    --primary-foreground: 210 40% 98%;
+    
+    --secondary: 217 76% 51%;
+    --secondary-foreground: 210 40% 98%;
+    
+    --accent: 29 90% 55%;
+    --accent-foreground: 222 25% 10%;
+    
+    --muted: 210 20% 92%;
+    --muted-foreground: 215 25% 35%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    
+    --border: 214 32% 85%;
+    --input: 214 32% 85%;
+    --ring: 263 60% 50%;
+    
+    --divine-purple: 263 60% 50%;
+    --divine-blue: 217 76% 51%;
+    --divine-gold: 45 95% 60%;
+    --divine-saffron: 29 90% 55%;
+    --divine-red: 354 85% 55%;
+    
+    --chart-1: 263 60% 50%;
+    --chart-2: 217 76% 51%;
+    --chart-3: 29 90% 55%;
+    --chart-4: 354 85% 55%;
+    --chart-5: 45 95% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-poppins font-bold tracking-tight;
+  }
+}
+
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 15px rgba(var(--divine-glow-color, 156, 81, 253), 0.5), 
+                 0 0 30px rgba(var(--divine-glow-color, 156, 81, 253), 0.3);
+  }
+  
+  .divine-glow-purple {
+    --divine-glow-color: 156, 81, 253;
+  }
+  
+  .divine-glow-blue {
+    --divine-glow-color: 59, 130, 246;
+  }
+  
+  .divine-glow-gold {
+    --divine-glow-color: 253, 204, 73;
+  }
+  
+  .divine-glow-saffron {
+    --divine-glow-color: 252, 165, 53;
+  }
+  
+  .divine-border-glow {
+    box-shadow: 0 0 10px rgba(var(--divine-glow-color, 156, 81, 253), 0.7), 
+                inset 0 0 5px rgba(var(--divine-glow-color, 156, 81, 253), 0.5);
+  }
+  
+  .glassmorphism {
+    @apply bg-card/50 backdrop-blur-md border border-white/10;
+  }
+  
+  .neumorphism {
+    @apply bg-card shadow-[6px_6px_12px_#0f111a,-6px_-6px_12px_#1b1e30] rounded-xl;
+  }
+  
+  .floating {
+    animation: floating 3s ease-in-out infinite;
+  }
+  
+  @keyframes floating {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+  }
+}
+
+.font-poppins {
+  font-family: var(--font-poppins), sans-serif;
+}
+
+.font-inter {
+  font-family: var(--font-inter), sans-serif;
+}
+
+/* Scroll styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary));
+}
+
+/* Status indicators */
+.status-online {
+  @apply bg-green-500;
+}
+
+.status-idle {
+  @apply bg-amber-400;
+}
+
+.status-dnd {
+  @apply bg-red-500;
+}
+
+.status-offline {
+  @apply bg-gray-500;
+}
